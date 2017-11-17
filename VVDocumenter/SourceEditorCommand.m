@@ -19,29 +19,12 @@
     
     NSInteger currentLine = textRange.start.line;
     NSInteger methodLine = currentLine + 1;
-    NSMutableString *methodString = [invocation.buffer.lines[methodLine] mutableCopy];
-    BOOL isSwift;
-    if([methodString containsString:@"-"]) {
-        isSwift = NO;
-    } else if([methodString containsString:@"func"]) {
-        isSwift = YES;
-    } else {
-        completionHandler(nil);
-        return;
-    }
-    while ([methodString containsString: isSwift ? @"{" : @";"] == false) {
-        if(invocation.buffer.lines.count == currentLine) {
-            completionHandler(nil);
-            return;
-        }
-        methodLine += 1;
-        [methodString appendString:invocation.buffer.lines[methodLine]];
-    }
     
     
-    
-    
+    NSMutableString *methodString = [self detectMethodStringFromLine:methodLine inBuffer:invocation.buffer];
     VVDocumenter* doc = [[VVDocumenter alloc] initWithCode:methodString];
+    
+    
     NSString *documentation = [doc document];
     
     NSArray<NSString *> *documentationArray = [documentation componentsSeparatedByString:@"\n"];
@@ -52,6 +35,27 @@
     }
     
     completionHandler(nil);
+}
+
+- (NSMutableString *)detectMethodStringFromLine:(NSInteger)line inBuffer:(XCSourceTextBuffer *)buffer {
+    NSMutableString *methodString = [buffer.lines[line] mutableCopy];
+    NSInteger currentLine = line;
+    BOOL isSwift;
+    if([methodString containsString:@"-"]) {
+        isSwift = NO;
+    } else if([methodString containsString:@"func"]) {
+        isSwift = YES;
+    } else {
+        return nil;
+    }
+    while ([methodString containsString: isSwift ? @"{" : @";"] == false) {
+        if(buffer.lines.count == currentLine) {
+            return nil;
+        }
+        currentLine += 1;
+        [methodString appendString:buffer.lines[currentLine]];
+    }
+    return methodString;
 }
 
 @end
