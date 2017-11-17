@@ -27,7 +27,9 @@
 #import <Foundation/Foundation.h>
 
 @interface VVDocumenter : NSObject
+
 -(instancetype) initWithCode:(NSString *)code;
 -(NSString *) baseIndentation;
 -(NSString *) document;
+    
 @end

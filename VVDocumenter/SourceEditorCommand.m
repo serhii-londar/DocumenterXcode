@@ -10,7 +10,7 @@
 #import "VVDocumenter.h"
 
 @implementation SourceEditorCommand
-
+    
 - (void)performCommandWithInvocation:(XCSourceEditorCommandInvocation *)invocation
                    completionHandler:(void (^)(NSError * _Nullable nilOrError))completionHandler {
     XCSourceTextRange *textRange = invocation.buffer.selections.firstObject;
@@ -18,12 +18,28 @@
     
     
     NSInteger currentLine = textRange.start.line;
-    NSMutableString *methodString = [invocation.buffer.lines[currentLine] mutableCopy];
-    
-    while ([methodString containsString:@"{"] == false) {
-        currentLine += 1;
-        [methodString appendString:invocation.buffer.lines[currentLine]];
+    NSInteger methodLine = currentLine + 1;
+    NSMutableString *methodString = [invocation.buffer.lines[methodLine] mutableCopy];
+    BOOL isSwift;
+    if([methodString containsString:@"-"]) {
+        isSwift = NO;
+    } else if([methodString containsString:@"func"]) {
+        isSwift = YES;
+    } else {
+        completionHandler(nil);
+        return;
     }
+    while ([methodString containsString: isSwift ? @"{" : @";"] == false) {
+        if(invocation.buffer.lines.count == currentLine) {
+            completionHandler(nil);
+            return;
+        }
+        methodLine += 1;
+        [methodString appendString:invocation.buffer.lines[methodLine]];
+    }
+    
+    
+    
     
     VVDocumenter* doc = [[VVDocumenter alloc] initWithCode:methodString];
     NSString *documentation = [doc document];
@@ -32,7 +48,6 @@
     
     for (NSInteger i = 0; i < documentationArray.count; i++) {
         NSString *lineToInsert = documentationArray[documentationArray.count - i - 1];
-        
         [invocation.buffer.lines insertObject:lineToInsert atIndex:indexToInsert];
     }
     
