@@ -7,7 +7,7 @@ This repository contains settings app and xcode source editor extension.
   <img src="./Screenshots/DocumenterSettings.png" width="350"/>
 </p>
 
-##Example of usage:
+## Example of usage:
 <p align="center">
 <img src="./Screenshots/Documenter.gif"/>
 </p>
