@@ -626,7 +626,7 @@
 				INFOPLIST_FILE = DocumenterXcode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.slon.Documenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.slon.DocumenterXcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -646,7 +646,7 @@
 				INFOPLIST_FILE = DocumenterXcode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.slon.Documenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.slon.DocumenterXcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
@@ -665,7 +665,7 @@
 				INFOPLIST_FILE = VVDocumenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.slon.Documenter.VVDocumenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.slon.DocumenterXcodeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -685,7 +685,7 @@
 				INFOPLIST_FILE = VVDocumenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.slon.Documenter.VVDocumenter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.slon.DocumenterXcodeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
