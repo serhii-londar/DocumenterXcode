@@ -50,22 +50,28 @@
 - (NSMutableString *)detectMethodStringFromLine:(NSInteger)line inBuffer:(XCSourceTextBuffer *)buffer {
     NSMutableString *methodString = [buffer.lines[line] mutableCopy];
     NSInteger currentLine = line;
-    BOOL isSwift;
-    if([methodString containsString:@"-"]) {
-        isSwift = NO;
-    } else if([methodString containsString:@"func"]) {
-        isSwift = YES;
+    if([methodString containsString:@"func"] == YES) {
+        while ([methodString containsString: @"{"] == YES) {
+            if(buffer.lines.count - 1 == currentLine) {
+                return nil;
+            }
+            currentLine += 1;
+            [methodString appendString:buffer.lines[currentLine]];
+        }
+        return methodString;
+    } else if([methodString containsString:@"-"]) {
+        while ([methodString containsString: @";"] == YES) {
+            if(buffer.lines.count - 1 == currentLine) {
+                return nil;
+            }
+            currentLine += 1;
+            [methodString appendString:buffer.lines[currentLine]];
+        }
+        return methodString;
     } else {
         return nil;
     }
-    while ([methodString containsString: isSwift ? @"{" : @";"] == false) {
-        if(buffer.lines.count - 1 == currentLine) {
-            return nil;
-        }
-        currentLine += 1;
-        [methodString appendString:buffer.lines[currentLine]];
-    }
-    return methodString;
+    
 }
 
 @end
