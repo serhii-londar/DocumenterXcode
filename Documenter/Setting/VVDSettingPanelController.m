@@ -28,7 +28,6 @@
 #import "VVDocumenterSetting.h"
 
 @interface VVDSettingPanelController ()<NSTextFieldDelegate>
-@property (weak) IBOutlet NSTextField *tfTrigger;
 @property (weak) IBOutlet NSButton *btnUseSpaces;
 @property (weak) IBOutlet NSTextField *tfSpaceCount;
 @property (weak) IBOutlet NSTextField *tfSpaceLabel;
@@ -68,7 +67,6 @@
     [super viewDidLoad];
 
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    [self.tfTrigger setStringValue:[[VVDocumenterSetting defaultSetting] triggerString]];
     self.btnUseSpaces.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] useSpaces];
 
     self.btnAddSinceToComment.state = (NSCellStateValue)[[VVDocumenterSetting defaultSetting] addSinceToComments];
@@ -102,7 +100,6 @@
     [self updateUseSpace:self.btnUseSpaces.state];
     [self syncSpaceCount];
 
-    self.tfTrigger.delegate = self;
     self.tfDateInformaitonFormat.delegate = self;
     self.tfAuthoInformation.delegate = self;
     self.tfSinceVersion.delegate = self;
@@ -139,7 +136,6 @@
     self.tfSinceVersion.enabled = NO;
     self.mtxSinceOptions.enabled = NO;
     self.btnBriefDescription.state = NSOffState;
-    [self.tfTrigger setStringValue:VVDDefaultTriggerString];
     self.btnUseHeaderDoc.state = NSOffState;
     self.btnBlankLinesBetweenSections.state = NSOnState;
     self.btnAlightArgumentComments.state = NSOnState;
@@ -204,11 +200,7 @@
     self.tfSpaceLabel.textColor = useSpace ? [NSColor blackColor] : [NSColor grayColor];
 }
 
-- (void)controlTextDidChange:(NSNotification *)notification
-{
-    if([notification object] == self.tfTrigger) {
-        [[VVDocumenterSetting defaultSetting] setTriggerString:self.tfTrigger.stringValue];
-    }
+- (void)controlTextDidChange:(NSNotification *)notification {
     if([notification object] == self.tfAuthoInformation) {
         [[VVDocumenterSetting defaultSetting] setAuthorInformation:self.tfAuthoInformation.stringValue];
     }
@@ -220,13 +212,7 @@
     }
 }
 
-- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor
-{
-    if (control == self.tfTrigger) {
-        if (self.tfTrigger.stringValue.length == 0) {
-            [self.tfTrigger setStringValue:VVDDefaultTriggerString];
-        }
-    }
+- (BOOL)control:(NSControl *)control textShouldEndEditing:(NSText *)fieldEditor {
     return YES;
 }
 
