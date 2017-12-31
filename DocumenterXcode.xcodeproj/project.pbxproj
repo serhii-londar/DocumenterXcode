@@ -128,7 +128,7 @@
 		E8555A441FBC8D6C007C0870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8555A491FBC8D6C007C0870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8555A4A1FBC8D6C007C0870 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E8555A4C1FBC8D6C007C0870 /* Documenter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Documenter.entitlements; sourceTree = "<group>"; };
+		E8555A4C1FBC8D6C007C0870 /* DocumenterXcode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DocumenterXcode.entitlements; sourceTree = "<group>"; };
 		E8555A611FBC8D97007C0870 /* Documenter-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Documenter-Prefix.pch"; sourceTree = "<group>"; };
 		E8555AB41FBC8EC6007C0870 /* DocumenterXcodeExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DocumenterXcodeExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8555AB61FBC8EC6007C0870 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -291,7 +291,7 @@
 		E8555A321FBC8D6C007C0870 = {
 			isa = PBXGroup;
 			children = (
-				E8555A3D1FBC8D6C007C0870 /* Documenter */,
+				E8555A3D1FBC8D6C007C0870 /* DocumenterXcode */,
 				E8555AB81FBC8EC6007C0870 /* VVDocumenter */,
 				E8555AB51FBC8EC6007C0870 /* Frameworks */,
 				E8555A3C1FBC8D6C007C0870 /* Products */,
@@ -307,7 +307,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E8555A3D1FBC8D6C007C0870 /* Documenter */ = {
+		E8555A3D1FBC8D6C007C0870 /* DocumenterXcode */ = {
 			isa = PBXGroup;
 			children = (
 				92CD31AE1FBD09D500CA844F /* Main.storyboard */,
@@ -318,9 +318,9 @@
 				E8555A441FBC8D6C007C0870 /* Assets.xcassets */,
 				E8555A491FBC8D6C007C0870 /* Info.plist */,
 				E8555A4A1FBC8D6C007C0870 /* main.m */,
-				E8555A4C1FBC8D6C007C0870 /* Documenter.entitlements */,
+				E8555A4C1FBC8D6C007C0870 /* DocumenterXcode.entitlements */,
 			);
-			path = Documenter;
+			path = DocumenterXcode;
 			sourceTree = "<group>";
 		};
 		E8555AB51FBC8EC6007C0870 /* Frameworks */ = {
@@ -616,14 +616,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Documenter/Documenter.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DocumenterXcode/DocumenterXcode.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 22AFPHX3AU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Documenter/Documenter-Prefix.pch";
-				INFOPLIST_FILE = Documenter/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DocumenterXcode/Documenter-Prefix.pch";
+				INFOPLIST_FILE = DocumenterXcode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.slon.Documenter;
@@ -636,14 +636,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Documenter/Documenter.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DocumenterXcode/DocumenterXcode.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 22AFPHX3AU;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Documenter/Documenter-Prefix.pch";
-				INFOPLIST_FILE = Documenter/Info.plist;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/DocumenterXcode/Documenter-Prefix.pch";
+				INFOPLIST_FILE = DocumenterXcode/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.slon.Documenter;
