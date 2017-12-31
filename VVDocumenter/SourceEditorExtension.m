@@ -19,17 +19,6 @@
 }
 
 - (void)extensionDidFinishLaunching {
-    self.documenterManager = [VVDocumenterManager shared];
-    [self.documenterManager addSettingMenu];
-    [self.documenterManager subscribeToEvents];
-}
-
-
-//- (NSArray <NSDictionary <XCSourceEditorCommandDefinitionKey, id> *> *)commandDefinitions {
-//    return @[];
-//}
-
-- (void)dealloc {
     
 }
 

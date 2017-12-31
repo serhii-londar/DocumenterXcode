@@ -7,10 +7,7 @@
 //
 
 #import <XcodeKit/XcodeKit.h>
-#import "VVDocumenterManager.h"
 
 @interface SourceEditorExtension : NSObject <XCSourceEditorExtension>
-
-@property(nonatomic, strong) VVDocumenterManager *documenterManager;
 
 @end

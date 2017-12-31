@@ -14,27 +14,37 @@
 - (void)performCommandWithInvocation:(XCSourceEditorCommandInvocation *)invocation
                    completionHandler:(void (^)(NSError * _Nullable nilOrError))completionHandler {
     XCSourceTextRange *textRange = invocation.buffer.selections.firstObject;
-    NSInteger indexToInsert = textRange.start.line + 1;
-    
-    
     NSInteger currentLine = textRange.start.line;
+    if(invocation.buffer.lines.count - 1 == currentLine) {
+        completionHandler([[NSError alloc] initWithDomain:@"Error Inserting documentation in last line." code:500 userInfo:@{}]);
+    }
+    
     NSInteger methodLine = currentLine + 1;
     
     
     NSMutableString *methodString = [self detectMethodStringFromLine:methodLine inBuffer:invocation.buffer];
+    if(methodString == nil) {
+        completionHandler(nil);
+        return;
+    }
     VVDocumenter* doc = [[VVDocumenter alloc] initWithCode:methodString];
-    
-    
     NSString *documentation = [doc document];
-    
-    NSArray<NSString *> *documentationArray = [documentation componentsSeparatedByString:@"\n"];
-    
-    for (NSInteger i = 0; i < documentationArray.count; i++) {
-        NSString *lineToInsert = documentationArray[documentationArray.count - i - 1];
-        [invocation.buffer.lines insertObject:lineToInsert atIndex:indexToInsert];
+    if(documentation == nil){
+        completionHandler(nil);
+        return;
     }
     
+    [self insertDocumentation:documentation buffer:invocation.buffer line:currentLine];
+    
     completionHandler(nil);
+}
+
+- (void)insertDocumentation:(NSString *)documentation buffer:(XCSourceTextBuffer *)buffer line: (NSInteger)line {
+    NSArray<NSString *> *documentationArray = [documentation componentsSeparatedByString:@"\n"];
+    for (NSInteger i = 0; i < documentationArray.count; i++) {
+        NSString *lineToInsert = documentationArray[documentationArray.count - i - 1];
+        [buffer.lines insertObject:lineToInsert atIndex:line];
+    }
 }
 
 - (NSMutableString *)detectMethodStringFromLine:(NSInteger)line inBuffer:(XCSourceTextBuffer *)buffer {
@@ -49,7 +59,7 @@
         return nil;
     }
     while ([methodString containsString: isSwift ? @"{" : @";"] == false) {
-        if(buffer.lines.count == currentLine) {
+        if(buffer.lines.count - 1 == currentLine) {
             return nil;
         }
         currentLine += 1;
