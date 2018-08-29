@@ -59,7 +59,7 @@
             [methodString appendString:buffer.lines[currentLine]];
         }
         return methodString;
-    } else if([methodString containsString:@"-"]) {
+    } else if([methodString containsString:@"-"] || [methodString containsString:@"+"]) {
         while ([methodString containsString: @";"] == NO) {
             if(buffer.lines.count - 1 == currentLine) {
                 return nil;
