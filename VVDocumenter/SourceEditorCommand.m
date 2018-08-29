@@ -51,7 +51,7 @@
     NSMutableString *methodString = [buffer.lines[line] mutableCopy];
     NSInteger currentLine = line;
     if([methodString containsString:@"func"] == YES) {
-        while ([methodString containsString: @"{"] == YES) {
+        while ([methodString containsString: @"{"] == NO) {
             if(buffer.lines.count - 1 == currentLine) {
                 return nil;
             }
@@ -60,7 +60,7 @@
         }
         return methodString;
     } else if([methodString containsString:@"-"]) {
-        while ([methodString containsString: @";"] == YES) {
+        while ([methodString containsString: @";"] == NO) {
             if(buffer.lines.count - 1 == currentLine) {
                 return nil;
             }
@@ -71,7 +71,6 @@
     } else {
         return nil;
     }
-    
 }
 
 @end

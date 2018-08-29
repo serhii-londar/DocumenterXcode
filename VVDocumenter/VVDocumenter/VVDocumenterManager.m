@@ -85,8 +85,8 @@
 }
 
 -(void) showSettingPanel:(NSNotification *)noti {
-//    self.settingPanel = [[VVDSettingPanelWindowController alloc] initWithWindowNibName:@"VVDSettingPanelWindowController"];
-//    [self.settingPanel showWindow:self.settingPanel];
+    //    self.settingPanel = [[VVDSettingPanelWindowController alloc] initWithWindowNibName:@"VVDSettingPanelWindowController"];
+    //    [self.settingPanel showWindow:self.settingPanel];
 }
 
 - (void) subscribeToEvents {
@@ -98,12 +98,12 @@
 
 
 - (void) textStorageDidChange:(NSNotification *)noti {
-
+    
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
         NSTextView *textView = (NSTextView *)[noti object];
         VVTextResult *currentLineResult = [textView vv_textResultOfCurrentLine];
         if (currentLineResult) {
-
+            
             //Check if there is a "//" already typed in. We do this to solve the undo issue
             //Otherwise when you press Cmd+Z, "///" will be recognized and trigger the doc inserting, so you can not perform an undo.
             NSString *triggerString = [[VVDocumenterSetting defaultSetting] triggerString];
@@ -117,14 +117,14 @@
             
             if ([currentLineResult.string vv_matchesPatternRegexPattern:[NSString stringWithFormat:@"^\\s*%@$",[NSRegularExpression escapedPatternForString:triggerString]]] && self.prefixTyped) {
                 VVTextResult *previousLineResult = [textView vv_textResultOfPreviousLine];
-
+                
                 // Previous line is a documentation comment, so ignore this
                 if ([previousLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
                     return;
                 }
-
+                
                 VVTextResult *nextLineResult = [textView vv_textResultOfNextLine];
-
+                
                 // Next line is a documentation comment, so ignore this
                 if ([nextLineResult.string vv_matchesPatternRegexPattern:@"^\\s*///"]) {
                     return;
@@ -132,7 +132,7 @@
                 
                 //Get a @"///" (triggerString) typed in by user. Do work!
                 self.prefixTyped = NO;
-
+                
                 __block BOOL shouldReplace = NO;
                 
                 //Decide which is closer to the cursor. A semicolon or a half brace.
@@ -177,11 +177,11 @@
                 
                 //Now we are using a simulation of keyboard event to insert the docs, instead of using the IDE's private method.
                 //See more at https://github.com/onevcat/VVDocumenter-Xcode/issues/3
-
+                
                 //Save current content in paste board
                 NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
                 NSString *originPBString = [pasteBoard stringForType:NSPasteboardTypeString];
-
+                
                 //Set the doc comments in it
                 [pasteBoard declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil];
                 [pasteBoard setString:documentationString forType:NSStringPboardType];
@@ -198,9 +198,9 @@
                 
                 //The key down is just a defined finish signal by me. When we receive this key, we know operation above is finished.
                 [kes sendKeyCode:kVK_F20];
-
-                self.eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^NSEvent *(NSEvent *incomingEvent) {
-                    if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kVK_F20) {
+                
+                self.eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSEventMaskKeyDown handler:^NSEvent *(NSEvent *incomingEvent) {
+                    if ([incomingEvent type] == NSEventTypeKeyDown && [incomingEvent keyCode] == kVK_F20) {
                         //Finish signal arrived, no need to observe the event
                         [NSEvent removeMonitor:self.eventMonitor];
                         self.eventMonitor = nil;
@@ -220,7 +220,7 @@
                         
                         //Invalidate the finish signal, in case you set it to do some other thing.
                         return nil;
-                    } else if ([incomingEvent type] == NSKeyDown && [incomingEvent keyCode] == kKeyVCode && shouldReplace == YES) {
+                    } else if ([incomingEvent type] == NSEventTypeKeyDown && [incomingEvent keyCode] == kKeyVCode && shouldReplace == YES) {
                         //Select input line and the define code block.
                         NSRange r = [textView vv_textResultUntilNextString:@";"].range;
                         

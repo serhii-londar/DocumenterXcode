@@ -26,22 +26,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VVDocumenter/VVDocumenter/Commenter/VVBaseCommenter.m"
-            timestampString = "532707274.85268"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-startCommentWithDescriptionTag:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -136,27 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VVDocumenter/SourceEditorCommand.m"
-            timestampString = "536429874.256776"
+            timestampString = "557241793.91686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "-performCommandWithInvocation:completionHandler:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "VVDocumenter/SourceEditorCommand.m"
-            timestampString = "536429874.257065"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-detectMethodStringFromLine:inBuffer:"
             landmarkType = "7">
          </BreakpointContent>
@@ -168,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VVDocumenter/SourceEditorCommand.m"
-            timestampString = "536429874.257257"
+            timestampString = "557241793.9171931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-detectMethodStringFromLine:inBuffer:"
             landmarkType = "7">
          </BreakpointContent>
@@ -184,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VVDocumenter/SourceEditorCommand.m"
-            timestampString = "536429874.257441"
+            timestampString = "557241793.917527"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "-detectMethodStringFromLine:inBuffer:"
             landmarkType = "7">
          </BreakpointContent>
