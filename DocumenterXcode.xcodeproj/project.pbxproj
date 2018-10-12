@@ -41,7 +41,7 @@
 		E8555AB71FBC8EC6007C0870 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8555AB61FBC8EC6007C0870 /* Cocoa.framework */; };
 		E8555ABB1FBC8EC6007C0870 /* SourceEditorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E8555ABA1FBC8EC6007C0870 /* SourceEditorExtension.m */; };
 		E8555ABE1FBC8EC6007C0870 /* SourceEditorCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E8555ABD1FBC8EC6007C0870 /* SourceEditorCommand.m */; };
-		E8555AC31FBC8EC6007C0870 /* DocumenterXcodeExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E8555AB41FBC8EC6007C0870 /* DocumenterXcodeExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E8555AC31FBC8EC6007C0870 /* DocumenterXcode.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E8555AB41FBC8EC6007C0870 /* DocumenterXcode.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				E8555AC31FBC8EC6007C0870 /* DocumenterXcodeExtension.appex in Embed App Extensions */,
+				E8555AC31FBC8EC6007C0870 /* DocumenterXcode.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,7 +122,7 @@
 		E8503BA21FBC8F6C00EE4300 /* VVTextResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVTextResult.m; sourceTree = "<group>"; };
 		E8503BA41FBC8F6C00EE4300 /* NSTextView+VVTextGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+VVTextGetter.h"; sourceTree = "<group>"; };
 		E8503BA51FBC8F6C00EE4300 /* NSTextView+VVTextGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+VVTextGetter.m"; sourceTree = "<group>"; };
-		E8555A3B1FBC8D6C007C0870 /* DocumenterXcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocumenterXcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8555A3B1FBC8D6C007C0870 /* DocumenterXcodeSettings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocumenterXcodeSettings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8555A3E1FBC8D6C007C0870 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8555A3F1FBC8D6C007C0870 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E8555A441FBC8D6C007C0870 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 		E8555A4A1FBC8D6C007C0870 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8555A4C1FBC8D6C007C0870 /* DocumenterXcode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DocumenterXcode.entitlements; sourceTree = "<group>"; };
 		E8555A611FBC8D97007C0870 /* Documenter-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Documenter-Prefix.pch"; sourceTree = "<group>"; };
-		E8555AB41FBC8EC6007C0870 /* DocumenterXcodeExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DocumenterXcodeExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8555AB41FBC8EC6007C0870 /* DocumenterXcode.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DocumenterXcode.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8555AB61FBC8EC6007C0870 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E8555AB91FBC8EC6007C0870 /* SourceEditorExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceEditorExtension.h; sourceTree = "<group>"; };
 		E8555ABA1FBC8EC6007C0870 /* SourceEditorExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SourceEditorExtension.m; sourceTree = "<group>"; };
@@ -301,8 +301,8 @@
 		E8555A3C1FBC8D6C007C0870 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E8555A3B1FBC8D6C007C0870 /* DocumenterXcode.app */,
-				E8555AB41FBC8EC6007C0870 /* DocumenterXcodeExtension.appex */,
+				E8555A3B1FBC8D6C007C0870 /* DocumenterXcodeSettings.app */,
+				E8555AB41FBC8EC6007C0870 /* DocumenterXcode.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -349,9 +349,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E8555A3A1FBC8D6C007C0870 /* DocumenterXcode */ = {
+		E8555A3A1FBC8D6C007C0870 /* DocumenterXcodeSettings */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8555A4F1FBC8D6C007C0870 /* Build configuration list for PBXNativeTarget "DocumenterXcode" */;
+			buildConfigurationList = E8555A4F1FBC8D6C007C0870 /* Build configuration list for PBXNativeTarget "DocumenterXcodeSettings" */;
 			buildPhases = (
 				E8555A371FBC8D6C007C0870 /* Sources */,
 				E8555A381FBC8D6C007C0870 /* Frameworks */,
@@ -363,14 +363,14 @@
 			dependencies = (
 				E8555AC21FBC8EC6007C0870 /* PBXTargetDependency */,
 			);
-			name = DocumenterXcode;
+			name = DocumenterXcodeSettings;
 			productName = Documenter;
-			productReference = E8555A3B1FBC8D6C007C0870 /* DocumenterXcode.app */;
+			productReference = E8555A3B1FBC8D6C007C0870 /* DocumenterXcodeSettings.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E8555AB31FBC8EC6007C0870 /* DocumenterXcodeExtension */ = {
+		E8555AB31FBC8EC6007C0870 /* DocumenterXcode */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E8555AC41FBC8EC6007C0870 /* Build configuration list for PBXNativeTarget "DocumenterXcodeExtension" */;
+			buildConfigurationList = E8555AC41FBC8EC6007C0870 /* Build configuration list for PBXNativeTarget "DocumenterXcode" */;
 			buildPhases = (
 				E8555AB01FBC8EC6007C0870 /* Sources */,
 				E8555AB11FBC8EC6007C0870 /* Frameworks */,
@@ -380,9 +380,9 @@
 			);
 			dependencies = (
 			);
-			name = DocumenterXcodeExtension;
+			name = DocumenterXcode;
 			productName = VVDocumenter;
-			productReference = E8555AB41FBC8EC6007C0870 /* DocumenterXcodeExtension.appex */;
+			productReference = E8555AB41FBC8EC6007C0870 /* DocumenterXcode.appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
@@ -427,8 +427,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E8555A3A1FBC8D6C007C0870 /* DocumenterXcode */,
-				E8555AB31FBC8EC6007C0870 /* DocumenterXcodeExtension */,
+				E8555A3A1FBC8D6C007C0870 /* DocumenterXcodeSettings */,
+				E8555AB31FBC8EC6007C0870 /* DocumenterXcode */,
 			);
 		};
 /* End PBXProject section */
@@ -503,7 +503,7 @@
 /* Begin PBXTargetDependency section */
 		E8555AC21FBC8EC6007C0870 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E8555AB31FBC8EC6007C0870 /* DocumenterXcodeExtension */;
+			target = E8555AB31FBC8EC6007C0870 /* DocumenterXcode */;
 			targetProxy = E8555AC11FBC8EC6007C0870 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -708,7 +708,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8555A4F1FBC8D6C007C0870 /* Build configuration list for PBXNativeTarget "DocumenterXcode" */ = {
+		E8555A4F1FBC8D6C007C0870 /* Build configuration list for PBXNativeTarget "DocumenterXcodeSettings" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8555A501FBC8D6C007C0870 /* Debug */,
@@ -717,7 +717,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E8555AC41FBC8EC6007C0870 /* Build configuration list for PBXNativeTarget "DocumenterXcodeExtension" */ = {
+		E8555AC41FBC8EC6007C0870 /* Build configuration list for PBXNativeTarget "DocumenterXcode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E8555AC51FBC8EC6007C0870 /* Debug */,
